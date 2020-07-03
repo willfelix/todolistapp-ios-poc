@@ -10,17 +10,32 @@ import Foundation
 
 struct Auth {
     
-    private let key = Constants.USER_KEY
-
-    func signin(name: String) {
+    private static let key = Constants.USER_KEY
+    private static let opening_key = Constants.OPENED_APP_BEFORE_KEY
+    
+    static func username() -> String? {
+        return UserDefaults.standard.string(forKey: key)
+    }
+    
+    static func isFirstTime() -> Bool {
+        return !UserDefaults.standard.bool(forKey: opening_key)
+    }
+    
+    static func registerOpening() {
+        UserDefaults.standard.setValue(true, forKey: opening_key)
+    }
+    
+    
+    static func signin(name: String) {
         UserDefaults.standard.setValue(name, forKey: key)
     }
 
-    func isSignedIn() -> Bool {
-        return UserDefaults.standard.string(forKey: key) != nil
+    static func isSignedIn() -> Bool {
+        let user = UserDefaults.standard.string(forKey: key)
+        return user != nil && !user!.isEmpty
     }
 
-    func signout() {
+    static func signout() {
         UserDefaults.standard.setValue(nil, forKey: key)
     }
 

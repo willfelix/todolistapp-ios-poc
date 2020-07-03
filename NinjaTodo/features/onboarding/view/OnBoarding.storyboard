@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PVA-ty-Acs">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -37,6 +37,9 @@
                                 </constraints>
                                 <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="onPageChanges:" destination="PVA-ty-Acs" eventType="valueChanged" id="i6n-cm-S88"/>
+                                </connections>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gs7-Dp-wFq">
                                 <rect key="frame" x="24" y="796" width="366" height="42"/>
@@ -48,6 +51,9 @@
                                 <state key="normal" title="Let's Go">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Rd8-yX-5qu" kind="show" id="guK-zs-vtO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -64,10 +70,25 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lPx-sW-tLz"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="NOP-7G-zU9" id="dn6-Ri-pHc"/>
+                        <outlet property="pageControl" destination="FxP-0C-mN6" id="oDV-er-CDQ"/>
+                        <outlet property="skipButton" destination="Gs7-Dp-wFq" id="icO-ey-XbA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bj9-Vi-fxS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="147.82608695652175" y="154.6875"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="wQy-xB-quv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="Rd8-yX-5qu" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="24s-vM-rOO"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0hB-zt-u4x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="908" y="87"/>
         </scene>
     </scenes>
 </document>

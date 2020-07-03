@@ -8,11 +8,46 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class AuthViewController: UIViewController {
 
+    @IBOutlet weak var nameTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    @IBAction func onEnter(_ sender: Any) {
+        
+        let name = nameTextField.text
+        if name?.isEmpty ?? false {
+            
+            let alertController = UIAlertController(
+                title: "Nome",
+                message: "Campo obrigatório",
+                preferredStyle: .alert
+            )
+            
+            let button = UIAlertAction(
+                title: "OK",
+                style: .cancel
+            )
+            
+            alertController.addAction(button)
+            
+            present(alertController,
+                    animated: true)
+            
+            return
+            
+        }
+        
+        Auth.signin(name: name!)
+        navigationController?.pushViewController(
+            UIStoryboard(name: "Home", bundle: nil).instantiateInitialViewController()!,
+            animated: true
+        )
         
     }
     

@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+struct Page {
+    
+    let animation: String
+    let title: String
+    let description: String
+    
+}
